@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "21.x"
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: npm install
@@ -30,16 +30,16 @@ jobs:
         run: npm run build
 
       - name: Publish to npm (beta)
-        run: npm publish --provenance --access public --tag beta
+        run: npm publish --provenance --access public --tag develop
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish to pnpm (beta)
-        run: npx pnpm publish --tag beta
+        run: npx pnpm publish --tag develop --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
+
       - name: Publish to Yarn (beta)
-        run: yarn publish --tag beta
+        run: yarn publish --tag develop
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
