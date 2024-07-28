@@ -29,17 +29,7 @@ jobs:
       - name: Build the package
         run: npm run build
 
-      - name: Publish to npm (beta)
+      - name: Publish to npm registery (beta)
         run: npm publish --provenance --access public --tag develop
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish to pnpm (beta)
-        run: npx pnpm publish --tag develop --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish to Yarn (beta)
-        run: yarn publish --tag develop
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

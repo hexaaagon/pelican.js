@@ -28,17 +28,7 @@ jobs:
       - name: Build the package
         run: npm run build
 
-      - name: Publish to npm (latest)
+      - name: Publish to npm registery
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public
-
-      - name: Publish to pnpm (latest)
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx pnpm publish --no-git-checks
-
-      - name: Publish to Yarn (latest)
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn publish
