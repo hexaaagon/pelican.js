@@ -1,0 +1,38 @@
+{
+  "name": "pelikentil.js",
+  "version": "0.0.0--ALPHA",
+  "description": "A NodeJS API Wrapper for Pelican Panel.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hexaaagon/pelikentil.js.git"
+  },
+  "keywords": [
+    "pelican",
+    "pelicanpanel",
+    "node.js",
+    "nodejs",
+    "api",
+    "api-wrapper",
+    "typescript",
+    "ts"
+  ],
+  "author": "Hexaa Scoooolzs",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/hexaaagon/pelikentil.js/issues"
+  },
+  "homepage": "https://github.com/hexaaagon/pelikentil.js#readme",
+  "dependencies": {
+    "axios": "^1.7.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
