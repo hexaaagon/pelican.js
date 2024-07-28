@@ -1,11 +1,11 @@
 <div align="middle">
 
-# pelikentil.js
+# pelican.js
 
 #### Note that this package is still under development.
 
-![NPM](https://img.shields.io/npm/v/pelikentil.js?style=for-the-badge)
-![Build Status](https://img.shields.io/github/actions/workflow/status/hexaaagon/pelikentil.js/publish-latest.yml?style=for-the-badge)
+![NPM](https://img.shields.io/npm/v/pelican.js?style=for-the-badge)
+![Build Status](https://img.shields.io/github/actions/workflow/status/hexaaagon/pelican.js/publish-latest.yml?style=for-the-badge)
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
@@ -13,7 +13,7 @@
 
 ## About
 
-pelikentil.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
+pelican.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
 
 ## Installation
 
@@ -21,7 +21,7 @@ pelikentil.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
   <summary>NPM</summary>
   
   ```js
-  npm i pelikentil.js
+  npm i pelican.js
   ```
 </details>
 
@@ -29,7 +29,7 @@ pelikentil.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
   <summary>Yarn</summary>
   
   ```js
-  yarn add pelikentil.js
+  yarn add pelican.js
   ```
 </details>
 
@@ -37,6 +37,6 @@ pelikentil.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
   <summary>PNPM</summary>
   
   ```js
-  pnpm add pelikentil.js
+  pnpm add pelican.js
   ```
 </details>
