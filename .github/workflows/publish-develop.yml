@@ -3,7 +3,7 @@ name: Publish Beta Package
 on:
   push:
     branches:
-      - develop
+      - "**"
 
 permissions:
   id-token: write
@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   publish-beta:
+    if: contains(github.event.head_commit.message, '(build)') && github.event_name == 'push' && !contains(github.event.head_commit.message, 'Merge pull request')
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +30,7 @@ jobs:
       - name: Build the package
         run: npm run build
 
-      - name: Publish to npm registery (beta)
+      - name: Publish to npm registry (beta)
         run: npm publish --provenance --access public --tag develop
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -28,7 +28,7 @@ jobs:
       - name: Build the package
         run: npm run build
 
-      - name: Publish to npm registery
+      - name: Publish to npm registry
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public
