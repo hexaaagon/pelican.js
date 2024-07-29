@@ -2,7 +2,7 @@
 
 # pelican.js
 
-#### Note that this package is still under development.
+**Note that this package is still under development. (ALPHA)**
 
 ![NPM](https://img.shields.io/npm/v/pelican.js?style=for-the-badge)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/hexaaagon/pelican.js/publish-latest.yml?style=for-the-badge)
@@ -14,6 +14,9 @@
 ## About
 
 pelican.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
+
+things can break.
+(last Pelican Panel Version tested: `1.0.0-beta6`)
 
 ## Installation
 
@@ -38,5 +41,13 @@ pelican.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
   
   ```js
   pnpm add pelican.js
+  ```
+</details>
+
+<details>
+  <summary>Bun</summary>
+  
+  ```js
+  bun add pelican.js
   ```
 </details>

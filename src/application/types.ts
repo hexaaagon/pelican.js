@@ -2,7 +2,8 @@ export default interface PelicanApplicationType {
   apiKey: string;
   apiUrl: string;
 
-  init(): void;
+  // TODO: don't use 'any', change to correct type (manual typings)
+  getAllUsers(): Promise<any>;
 }
 
 export interface PelicanApplicationOptions {

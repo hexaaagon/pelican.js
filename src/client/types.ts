@@ -2,7 +2,8 @@ export default interface PelicanClientType {
   apiKey: string;
   apiUrl: string;
 
-  init(): void;
+  // TODO: don't use 'any', change to correct type (manual typings)
+  getAccountDetails(): Promise<any>;
 }
 
 export interface PelicanClientOptions {
