@@ -1,4 +1,4 @@
-export default interface PelicanApplicationType {
+export interface PelicanApplicationType {
   apiKey: string;
   apiUrl: string;
 

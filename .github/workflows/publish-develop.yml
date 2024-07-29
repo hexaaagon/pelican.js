@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   publish-beta:
-    if: contains(github.event.head_commit.message, '(build)') && github.event_name == 'push' && !contains(github.event.head_commit.message, 'Merge pull request')
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +26,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Set version for beta release
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          TIMESTAMP=$(date +%s)
+          BETA_VERSION="${VERSION}-develop.${TIMESTAMP}"
+          npm version $BETA_VERSION --no-git-tag-version
+        shell: bash
 
       - name: Build the package
         run: npm run build

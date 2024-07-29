@@ -1,4 +1,4 @@
-export default interface PelicanClientType {
+export interface PelicanClientType {
   apiKey: string;
   apiUrl: string;
 

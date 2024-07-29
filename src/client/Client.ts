@@ -1,7 +1,6 @@
 import BaseRouters from "../base/routers";
 import { ClientMethods } from "./methods";
-import type PelicanClientType from "./types";
-import type { PelicanClientOptions } from "./types";
+import type { PelicanClientType, PelicanClientOptions } from "./types";
 
 export default class PelicanClient implements PelicanClientType {
   apiKey: string;
