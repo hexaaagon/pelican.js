@@ -19,7 +19,7 @@ export default class PelicanClient implements PelicanClientType {
    *
    * @returns {PelicanClientType}
    */
-  constructor(options: PelicanClientOptions) {
+  public constructor(options: PelicanClientOptions) {
     if (!options.apiKey) throw new Error("API Key is required");
     this.apiKey = options.apiKey;
 
@@ -48,7 +48,7 @@ export default class PelicanClient implements PelicanClientType {
    *   console.log(accountDetails);
    * })();
    */
-  async getAccountDetails() {
+  public async getAccountDetails() {
     return (await this.router.GET(ClientMethods.ACCOUNT)).data;
   }
 }

@@ -4,7 +4,7 @@ export default class BaseRouters {
   private apiKey: string;
   private apiUrl: string;
 
-  constructor(apiKey: string, apiUrl: string) {
+  public constructor(apiKey: string, apiUrl: string) {
     this.apiKey = apiKey;
     this.apiUrl = apiUrl;
   }

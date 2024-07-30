@@ -10,3 +10,9 @@ export interface PelicanClientOptions {
   apiKey: string;
   url: string;
 }
+
+export interface AccountBased {
+  toJSON(): AccountJSON;
+}
+
+export interface AccountJSON {}

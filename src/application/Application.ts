@@ -22,7 +22,7 @@ export default class BaseClient implements PelicanApplicationType {
    *
    * @returns {PelicanApplicationType}
    */
-  constructor(options: PelicanApplicationOptions) {
+  public constructor(options: PelicanApplicationOptions) {
     if (!options.apiKey) throw new Error("API Key is required");
     this.apiKey = options.apiKey;
 

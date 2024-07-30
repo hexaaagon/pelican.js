@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/hexaaagon/pelican.js#readme",
   "dependencies": {
+    "@discordjs/collection": "^2.1.0",
     "axios": "^1.7.2"
   },
   "devDependencies": {
