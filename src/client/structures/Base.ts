@@ -2,21 +2,21 @@ import { flatten } from "../../util/Util";
 import PelicanClient from "../Client";
 
 export default class Base {
-  public readonly client: PelicanClient;
-  private _patch: any;
+  public readonly client!: PelicanClient;
 
   public constructor(client: PelicanClient) {
     Object.defineProperty(this, "client", { value: client });
-
-    this.client = client;
-    return this;
   }
 
-  _clone() {
+  protected _clone() {
     return Object.assign(Object.create(this), this);
   }
 
-  _update(data = {}) {
+  protected _patch(data: any) {
+    return data;
+  }
+
+  protected _update(data = {}) {
     const clone = this._clone();
     this._patch(data);
     return clone;

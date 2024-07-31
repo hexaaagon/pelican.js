@@ -25,7 +25,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
-        run: npm install
+        run: npx pnpm install
 
       - name: Set version for beta release
         run: |
@@ -36,9 +36,9 @@ jobs:
         shell: bash
 
       - name: Build the package
-        run: npm run build
+        run: npx pnpm run build
 
       - name: Publish to npm registry (beta)
-        run: npm publish --provenance --access public --tag develop
+        run: npx pnpm publish --provenance --access public --tag develop --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

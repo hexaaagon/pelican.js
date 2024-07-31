@@ -1,5 +1,6 @@
 import BaseRouters from "../base/routers";
 import { ClientMethods } from "./methods";
+import Account from "./structures/Account";
 import type { PelicanClientType, PelicanClientOptions } from "./types";
 
 export default class PelicanClient implements PelicanClientType {
@@ -33,22 +34,10 @@ export default class PelicanClient implements PelicanClientType {
     return this;
   }
 
-  /**
-   * @name getAccountDetails
-   * @description Retrieve account details
-   * @example
-   * const { PelicanClient } = require('pelican.js')
-   * const pelicanClient = new PelicanClient({
-   *   apiKey: 'plcn_YOUR_CLIENT_APIKEY',
-   *   url: 'https://panel.example.com/'
-   * });
-   *
-   * (async () => {
-   *   const accountDetails = await pelicanClient.getAccountDetails();
-   *   console.log(accountDetails);
-   * })();
-   */
   public async getAccountDetails() {
-    return (await this.router.GET(ClientMethods.ACCOUNT)).data;
+    return new Account(
+      this,
+      (await this.router.GET(ClientMethods.ACCOUNT)).data
+    );
   }
 }
