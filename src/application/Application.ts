@@ -43,8 +43,4 @@ export default class BaseClient implements PelicanApplicationType {
 
     return this;
   }
-
-  async getAllUsers() {
-    return (await this.router.GET(getRouter(ApplicationMethods.USERS))).data;
-  }
 }

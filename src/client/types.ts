@@ -5,22 +5,6 @@ export interface PelicanClientType {
   apiUrl: string;
 
   account: AccountBased;
-
-  /**
-   * @name getAccountDetails
-   * @description Retrieve account details
-   * @example
-   * const { PelicanClient } = require('pelican.js')
-   * const pelicanClient = new PelicanClient({
-   *   apiKey: 'plcn_YOUR_CLIENT_APIKEY',
-   *   url: 'https://panel.example.com/'
-   * });
-   *
-   * (async () => {
-   *   const accountDetails = await pelicanClient.getAccountDetails();
-   *   console.log(accountDetails);
-   * })();
-   */
 }
 
 export interface PelicanClientOptions {
