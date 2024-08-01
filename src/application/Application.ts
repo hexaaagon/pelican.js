@@ -1,14 +1,20 @@
 import BaseRouters from "../base/routers";
+import { getRouter } from "../util/Router";
+import { CacheMap } from "../util/Util";
+import UserManagers from "./managers/User";
 import { ApplicationMethods } from "./methods";
 import type {
   PelicanApplicationType,
   PelicanApplicationOptions,
+  UserBased,
+  UserCache,
 } from "./types";
 
 export default class BaseClient implements PelicanApplicationType {
   apiKey: string;
   apiUrl: string;
   router: BaseRouters;
+  users: UserCache;
 
   /**
    * @name PelicanApplication
@@ -33,10 +39,12 @@ export default class BaseClient implements PelicanApplicationType {
 
     this.router = new BaseRouters(this.apiKey, this.apiUrl);
 
+    this.users = new UserManagers(this);
+
     return this;
   }
 
   async getAllUsers() {
-    return (await this.router.GET(ApplicationMethods.USERS)).data;
+    return (await this.router.GET(getRouter(ApplicationMethods.USERS))).data;
   }
 }

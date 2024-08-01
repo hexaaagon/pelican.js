@@ -1,3 +1,5 @@
+import { Collection } from "@discordjs/collection";
+
 export const isObject = (d: any) => typeof d === "object" && d !== null;
 
 export function flatten(
@@ -32,4 +34,9 @@ export function flatten(
   }
 
   return result;
+}
+
+export interface CacheMap<T> {
+  cache: Collection<string, T>;
+  fetch(username: string): Promise<T | undefined>;
 }

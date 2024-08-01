@@ -1,6 +1,10 @@
+import AccountManager from "./managers/Account";
+
 export interface PelicanClientType {
   apiKey: string;
   apiUrl: string;
+
+  account: AccountBased;
 
   /**
    * @name getAccountDetails
@@ -17,7 +21,6 @@ export interface PelicanClientType {
    *   console.log(accountDetails);
    * })();
    */
-  getAccountDetails(): Promise<AccountBased>;
 }
 
 export interface PelicanClientOptions {

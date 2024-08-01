@@ -1,12 +1,17 @@
 import BaseRouters from "../base/routers";
+import AccountManager from "./managers/Account";
 import { ClientMethods } from "./methods";
-import Account from "./structures/Account";
-import type { PelicanClientType, PelicanClientOptions } from "./types";
+import type {
+  PelicanClientType,
+  PelicanClientOptions,
+  AccountBased,
+} from "./types";
 
 export default class PelicanClient implements PelicanClientType {
   apiKey: string;
   apiUrl: string;
   router: BaseRouters;
+  account: AccountBased;
 
   /**
    * @name PelicanClient
@@ -31,13 +36,6 @@ export default class PelicanClient implements PelicanClientType {
 
     this.router = new BaseRouters(this.apiKey, this.apiUrl);
 
-    return this;
-  }
-
-  public async getAccountDetails() {
-    return new Account(
-      this,
-      (await this.router.GET(ClientMethods.ACCOUNT)).data
-    );
+    this.account = new AccountManager(this);
   }
 }
