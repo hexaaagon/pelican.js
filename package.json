@@ -32,6 +32,7 @@
     "axios": "^1.7.2"
   },
   "devDependencies": {
+    "@types/node": "^22.0.2",
     "ts-node": "^10.9.2",
     "yarn": "^1.22.22"
   },
