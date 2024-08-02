@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "**"
+  workflow_dispatch:
 
 permissions:
   id-token: write
@@ -11,7 +12,7 @@ permissions:
 
 jobs:
   publish-beta:
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +32,8 @@ jobs:
         run: |
           VERSION=$(node -p "require('./package.json').version")
           TIMESTAMP=$(date +%s)
-          BETA_VERSION="${VERSION}-develop.${TIMESTAMP}"
+          BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+          BETA_VERSION="${VERSION}--develop-${BRANCH_NAME}.${TIMESTAMP}"
           npm version $BETA_VERSION --no-git-tag-version
         shell: bash
 
