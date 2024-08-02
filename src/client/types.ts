@@ -12,20 +12,7 @@ export interface PelicanClientOptions {
   url: string;
 }
 
-export interface AccountBased {
-  uuid: string;
-  username: string;
-  email: string;
-  first_name: string;
-  last_name: string;
-  language: "en" | string;
-  image: string;
-  admin: boolean;
-  root_admin: boolean;
-  "2fa_enabled": boolean;
-  created_at: string;
-  updated_at: string;
-
+export interface AccountBased extends AccountJSON {
   changeEmail(currentPassword: string, email: string): Promise<this>;
   /**
    * @description Change account password
