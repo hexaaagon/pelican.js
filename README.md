@@ -16,38 +16,28 @@
 pelican.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
 
 things can break.
-(last Pelican Panel Version tested: `1.0.0-beta6`)
+(last Pelican Panel Version tested: `1.0.0-beta7`)
 
 ## Installation
 
 <details open>
-  <summary>NPM</summary>
+  <summary>Latest Release</summary>
   
   ```js
   npm i pelican.js
-  ```
-</details>
-
-<details>
-  <summary>Yarn</summary>
-  
-  ```js
   yarn add pelican.js
-  ```
-</details>
-
-<details>
-  <summary>PNPM</summary>
-  
-  ```js
   pnpm add pelican.js
+  bun add pelican.js
   ```
 </details>
 
 <details>
-  <summary>Bun</summary>
+  <summary>Develop Release</summary>
   
   ```js
-  bun add pelican.js
+  npm i pelican.js@develop
+  yarn add pelican.js@develop
+  pnpm add pelican.js@develop
+  bun add pelican.js@develop
   ```
 </details>
