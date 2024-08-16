@@ -1,7 +1,7 @@
 import BaseRouters from "../base/routers";
 import { getRouter } from "../util/Router";
 import { CacheMap } from "../util/Util";
-import UserManagers from "./managers/User";
+import UserManagers from "./managers/Users";
 import { ApplicationMethods } from "./methods";
 import type {
   PelicanApplicationType,

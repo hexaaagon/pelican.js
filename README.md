@@ -41,3 +41,22 @@ things can break.
   bun add pelican.js@develop
   ```
 </details>
+
+## TODOs
+
+### Client Method
+
+| Feature |  Status  |
+| :------ | :------: |
+| Account | ✅ (75%) |
+| Servers | ⚠️ (20%) |
+
+### Application Method
+
+| Feature |  Status  |
+| :------ | :------: |
+| Users   | ⚠️ (10%) |
+| Servers | ⚠️ (10%) |
+| Nodes   | ❌ (0%)  |
+| Egg     | ❌ (0%)  |
+| Mount   | ❌ (0%)  |

@@ -1,10 +1,13 @@
 import BaseRouters from "../base/routers";
+import { CacheMap } from "../util/Util";
 import AccountManager from "./managers/Account";
+import ServersManager from "./managers/Servers";
 import { ClientMethods } from "./methods";
 import type {
   PelicanClientType,
   PelicanClientOptions,
   AccountBased,
+  ServerBased,
 } from "./types";
 
 export default class PelicanClient implements PelicanClientType {
@@ -12,6 +15,7 @@ export default class PelicanClient implements PelicanClientType {
   apiUrl: string;
   router: BaseRouters;
   account: AccountBased;
+  servers: CacheMap<ServerBased>;
 
   /**
    * @name PelicanClient
@@ -37,5 +41,7 @@ export default class PelicanClient implements PelicanClientType {
     this.router = new BaseRouters(this.apiKey, this.apiUrl);
 
     this.account = new AccountManager(this);
+
+    this.servers = new ServersManager(this);
   }
 }
