@@ -1,6 +1,6 @@
 {
   "name": "pelican.js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A NodeJS API Wrapper for Pelican Panel.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/node": "^22.0.2",
     "ts-node": "^10.9.2",
+    "typedoc": "^0.26.5",
     "yarn": "^1.22.22"
   },
   "peerDependencies": {

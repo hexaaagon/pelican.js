@@ -2,7 +2,7 @@ import EventEmitter from "events";
 import PelicanClient from "../Client";
 import { flatten } from "../../util/Util";
 
-export class BaseEvent extends EventEmitter {
+export default class BaseEvent extends EventEmitter {
   public readonly client!: PelicanClient;
 
   public constructor(client: PelicanClient) {

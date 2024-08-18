@@ -1,9 +1,8 @@
 import PelicanClient from "../Client";
+import { ClientMethods } from "../methods";
 import { ServerBased, ServerJSON } from "../types";
-import Base from "./Base";
-import { BaseEvent } from "./BaseEvent";
-
-export default class Server extends Base implements ServerBased {
+import BaseEvent from "./BaseEvent";
+export default class Server extends BaseEvent implements ServerBased {
   public readonly server_owner!: boolean;
   public readonly identifier!: string;
   public readonly internal_id!: number;
@@ -57,6 +56,14 @@ export default class Server extends Base implements ServerBased {
       data.relationships.variables as any
     ).data.map((d: any) => d.attributes);
 
+    this.initWebsocket();
+
     Object.assign(this, data);
+  }
+
+  private async initWebsocket() {
+    const websocket = await this.client.router.GET(
+      ClientMethods.SERVER_WEBSOCKET
+    );
   }
 }

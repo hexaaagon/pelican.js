@@ -34,7 +34,23 @@ export default class ServersManager
     );
   }
 
-  fetch(identifier: string): Promise<ServerBased | undefined> {
-    throw new Error("Method not implemented.");
+  async fetch(identifier: string): Promise<ServerBased | undefined> {
+    if (!identifier) throw new Error("Identifier is required");
+    if (identifier.includes("-")) identifier = identifier.split("-")[0];
+
+    const servers = (await this.client.router
+      .GET(getRouter(ClientMethods.SERVERS))
+      .then((res) =>
+        res.data.data.map((server: any) => server.attributes)
+      )) as ServerBased[];
+
+    this.cache = new Collection(
+      servers?.map((server: ServerBased) => [
+        server.identifier,
+        new Server(this.client, server),
+      ])
+    );
+
+    return this.cache.find((server) => server.identifier === identifier);
   }
 }

@@ -15,4 +15,5 @@ export enum ClientMethods {
   SERVER_BACKUP_LOCKTOGGLE = "/api/client/servers/{{server}}/backups/{{backup}}/lock",
   SERVER_BACKUP_RESTORE = "/api/client/servers/{{server}}/backups/{{backup}}/restore",
   SERVER_BACKUPS = "/api/client/servers/{{server}}/backups",
+  SERVER_WEBSOCKET = "/api/client/servers/{{server}}/websocket",
 }
