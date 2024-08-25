@@ -1,4 +1,6 @@
+import { Language, Timezone } from "../types";
 import { CacheMap } from "../util/Util";
+import UserBuilder from "./structures/UserBuilder";
 
 export interface PelicanApplicationType {
   apiKey: string;
@@ -38,8 +40,21 @@ export interface UserCache extends CacheMap<UserBased> {
    * @description Fetch user based on their username
    * @param username Username
    */
-  fetch(username: string): Promise<UserBased | undefined>;
+  create(user: UserBuilder | UserCreate): Promise<UserBased>;
 
+  fetch(username: string): Promise<UserBased | undefined>;
   fetchByEmail(email: string): Promise<UserBased | undefined>;
   fetchByID(id: number): Promise<UserBased | undefined>;
+}
+
+export interface UserCreate {
+  email: string;
+  external_id?: string | null;
+  username: string;
+  password?: string | null;
+  root_admin?: boolean;
+  language?: Language;
+  timezone?: Timezone;
+  first_name: string;
+  last_name: string;
 }

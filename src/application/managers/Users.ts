@@ -1,8 +1,8 @@
 import { Collection } from "@discordjs/collection";
-import { PelicanApplication } from "../..";
+import { PelicanApplication, UserBuilder } from "../..";
 import { ApplicationMethods } from "../methods";
 import User from "../util/formatter/User";
-import { UserBased, UserCache, UserJSON } from "../types";
+import { UserBased, UserCache, UserCreate, UserJSON } from "../types";
 import BaseManagers from "./Base";
 import { getRouter } from "../../util/Router";
 
@@ -20,7 +20,15 @@ export default class UserManagers extends BaseManagers implements UserCache {
     setInterval(() => this._init(), 1000 * 60 * 5);
   }
 
-  private async _init() {
+  async create(user: UserBuilder | UserCreate) {
+    if (!user) throw new Error("User is required");
+    if (user instanceof UserBuilder) user.toJSON();
+
+    if (!user.username) throw new Error("Username is required");
+    if (!user.email) throw new Error("Email is required");
+
+    await this.client.router.POST(getRouter(ApplicationMethods.USERS), user);
+
     const users = (await this.client.router
       .GET(getRouter(ApplicationMethods.USERS))
       .then((res) =>
@@ -34,7 +42,12 @@ export default class UserManagers extends BaseManagers implements UserCache {
       ])
     );
 
-    return this;
+    return new User(
+      this.client,
+      this.cache
+        .find((userData) => userData.username === user.username)!
+        .toJSON()
+    );
   }
 
   async fetch(username: string) {
@@ -92,5 +105,22 @@ export default class UserManagers extends BaseManagers implements UserCache {
     );
 
     return this.cache.find((user) => user.id === id);
+  }
+
+  private async _init() {
+    const users = (await this.client.router
+      .GET(getRouter(ApplicationMethods.USERS))
+      .then((res) =>
+        res.data.data.map((user: any) => user.attributes)
+      )) as UserJSON[];
+
+    this.cache = new Collection(
+      users?.map((user: UserJSON) => [
+        user.username,
+        new User(this.client, user),
+      ])
+    );
+
+    return this;
   }
 }

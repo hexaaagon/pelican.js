@@ -17,6 +17,7 @@ export default class User extends Base implements UserBased {
   public readonly updated_at!: string;
   public readonly id!: number;
   public readonly external_id!: string | null;
+  public readonly toJSON!: () => UserJSON;
 
   constructor(client: PelicanApplication, data: UserJSON) {
     super(client);

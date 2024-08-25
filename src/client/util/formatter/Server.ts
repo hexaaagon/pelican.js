@@ -56,7 +56,7 @@ export default class Server extends BaseEvent implements ServerBased {
       data.relationships.variables as any
     ).data.map((d: any) => d.attributes);
 
-    this.initWebsocket();
+    // this.initWebsocket();
 
     Object.assign(this, data);
   }
