@@ -4,7 +4,7 @@ import { ServerBased, ServerCache } from "../types";
 import BaseManagers from "./Base";
 import { getRouter } from "../../util/Router";
 import { ClientMethods } from "../methods";
-import Server from "../structures/Server";
+import Server from "../util/formatter/Server";
 
 export default class ServersManager
   extends BaseManagers

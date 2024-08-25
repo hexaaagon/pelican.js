@@ -1,6 +1,6 @@
-import PelicanClient from "../Client";
-import { ClientMethods } from "../methods";
-import { ServerBased, ServerJSON } from "../types";
+import PelicanClient from "../../Client";
+import { ClientMethods } from "../../methods";
+import { ServerBased, ServerJSON } from "../../types";
 import BaseEvent from "./BaseEvent";
 export default class Server extends BaseEvent implements ServerBased {
   public readonly server_owner!: boolean;

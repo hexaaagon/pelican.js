@@ -1,7 +1,7 @@
 import { Collection } from "@discordjs/collection";
 import { PelicanApplication } from "../..";
 import { ApplicationMethods } from "../methods";
-import User from "../structures/User";
+import User from "../util/formatter/User";
 import { UserBased, UserCache, UserJSON } from "../types";
 import BaseManagers from "./Base";
 import { getRouter } from "../../util/Router";

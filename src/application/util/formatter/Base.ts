@@ -1,5 +1,5 @@
-import { PelicanApplication } from "../..";
-import { flatten } from "../../util/Util";
+import { PelicanApplication } from "../../../";
+import { flatten } from "../../../util/Util";
 
 export default class Base {
   public readonly client!: PelicanApplication;

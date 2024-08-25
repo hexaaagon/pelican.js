@@ -1,5 +1,5 @@
-import { PelicanApplication } from "../..";
-import { UserBased, UserJSON } from "../types";
+import { PelicanApplication } from "../../../";
+import { UserBased, UserJSON } from "../../types";
 import Base from "./Base";
 
 export default class User extends Base implements UserBased {

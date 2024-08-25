@@ -1,10 +1,12 @@
-import { flatten } from "../../util/Util";
-import PelicanClient from "../Client";
+import EventEmitter from "events";
+import PelicanClient from "../../Client";
+import { flatten } from "../../../util/Util";
 
-export default class Base {
+export default class BaseEvent extends EventEmitter {
   public readonly client!: PelicanClient;
 
   public constructor(client: PelicanClient) {
+    super();
     Object.defineProperty(this, "client", { value: client });
   }
 
