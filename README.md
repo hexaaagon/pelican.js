@@ -16,7 +16,7 @@
 pelican.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
 
 things can break.
-(last Pelican Panel Version tested: `1.0.0-beta7`)
+(last Pelican Panel Version tested: `1.0.0-beta8`)
 
 ## Installation
 
@@ -55,7 +55,7 @@ things can break.
 
 | Feature |  Status  |
 | :------ | :------: |
-| Users   | ⚠️ (10%) |
+| Users   | ⚠️ (15%) |
 | Servers | ⚠️ (10%) |
 | Nodes   | ❌ (0%)  |
 | Egg     | ❌ (0%)  |
