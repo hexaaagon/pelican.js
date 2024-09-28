@@ -1,62 +1,81 @@
-<div align="middle">
+# Turborepo starter
 
-# pelican.js
+This is an official starter Turborepo.
 
-**Note that this package is still under development. (ALPHA)**
+## Using this example
 
-![NPM](https://img.shields.io/npm/v/pelican.js?style=for-the-badge)
-![Build Status](https://img.shields.io/github/actions/workflow/status/hexaaagon/pelican.js/publish-latest.yml?style=for-the-badge)
+Run the following command:
 
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+```sh
+npx create-turbo@latest
+```
 
-</div>
+## What's inside?
 
-## About
+This Turborepo includes the following packages/apps:
 
-pelican.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
+### Apps and Packages
 
-things can break.
-(last Pelican Panel Version tested: `1.0.0-beta8`)
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-## Installation
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-<details open>
-  <summary>Latest Release</summary>
-  
-  ```js
-  npm i pelican.js
-  yarn add pelican.js
-  pnpm add pelican.js
-  bun add pelican.js
-  ```
-</details>
+### Utilities
 
-<details>
-  <summary>Develop Release</summary>
-  
-  ```js
-  npm i pelican.js@develop
-  yarn add pelican.js@develop
-  pnpm add pelican.js@develop
-  bun add pelican.js@develop
-  ```
-</details>
+This Turborepo has some additional tools already setup for you:
 
-## TODOs
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
-### Client Method
+### Build
 
-| Feature |  Status  |
-| :------ | :------: |
-| Account | ✅ (75%) |
-| Servers | ⚠️ (20%) |
+To build all apps and packages, run the following command:
 
-### Application Method
+```
+cd my-turborepo
+pnpm build
+```
 
-| Feature |  Status  |
-| :------ | :------: |
-| Users   | ⚠️ (15%) |
-| Servers | ⚠️ (10%) |
-| Nodes   | ❌ (0%)  |
-| Egg     | ❌ (0%)  |
-| Mount   | ❌ (0%)  |
+### Develop
+
+To develop all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm dev
+```
+
+### Remote Caching
+
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+
+```
+cd my-turborepo
+npx turbo login
+```
+
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
