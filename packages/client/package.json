@@ -1,0 +1,13 @@
+{
+  "name": "@pelicanjs/client",
+  "version": "0.1.0",
+  "description": "A NodeJS API Wrapper for Pelican Panel.",
+  "main": "index.js",
+  "repository": "https://github.com/hexaaagon/pelican.js",
+  "author": "Hexaa Scoooolzs",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typescript": "^5.6.2",
+    "@pelicanjs/types": "workspace:*"
+  }
+}
