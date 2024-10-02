@@ -1,0 +1,40 @@
+name: Publish to npm registry
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Publish Packages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Turbo run build
+        run: npx turbo run build
+
+      - name: Get changed packages
+        id: changed-packages
+        run: echo "changed_packages=$(npx turbo run build --dry-run=json | jq -r '.tasks[].package')" >> $GITHUB_ENV
+
+      - name: Publish all packages
+        if: env.changed_packages != ''
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          for package in $changed_packages; do
+            echo "Publishing $package"
+            pnpm --filter $package publish --provenance --access public --no-git-checks || exit 1
+          done

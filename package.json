@@ -4,11 +4,13 @@
   "version": "0.2.0",
   "scripts": {
     "build": "turbo build",
+    "build:packages": "turbo run build --filter=...{packages/*} --concurrency=4",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@types/node": "^20",
     "eslint": "^8",
     "prettier": "^3.2.5",
     "turbo": "^2.1.2",
