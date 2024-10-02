@@ -6,6 +6,9 @@
   "repository": "https://github.com/hexaaagon/pelican.js",
   "author": "Hexaa Scoooolzs",
   "license": "Apache-2.0",
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
     "typescript": "^5.6.2",
     "@pelicanjs/types": "workspace:*"
