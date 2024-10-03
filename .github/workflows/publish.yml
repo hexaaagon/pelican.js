@@ -22,12 +22,12 @@ jobs:
       - name: Install dependencies
         run: npx pnpm install
 
-      - name: Turbo run build
-        run: npx turbo run build
+      - name: Build packages
+        run: npx pnpm run build:packages
 
       - name: Get changed packages
         id: changed-packages
-        run: echo "changed_packages=$(npx turbo run build --dry-run=json | jq -r '.tasks[].package')" >> $GITHUB_ENV
+        run: echo "changed_packages=$(npx pnpm run build:packages --dry-run=json | jq -r '.tasks[].package')" >> $GITHUB_ENV
 
       - name: Publish all packages
         if: env.changed_packages != ''
