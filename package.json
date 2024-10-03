@@ -2,6 +2,20 @@
   "name": "pelican.js",
   "private": true,
   "version": "0.2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hexaaagon/pelican.js.git"
+  },
+  "keywords": [
+    "pelican",
+    "pelicanpanel",
+    "node.js",
+    "nodejs",
+    "api",
+    "api-wrapper",
+    "typescript",
+    "ts"
+  ],
   "scripts": {
     "build": "turbo build",
     "build:packages": "turbo run build --filter=...{packages/*} --concurrency=4",
@@ -9,6 +23,11 @@
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "bugs": {
+    "url": "https://github.com/hexaaagon/pelican.js/issues"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/hexaaagon/pelican.js#readme",
   "devDependencies": {
     "@types/node": "^20",
     "eslint": "^8",
