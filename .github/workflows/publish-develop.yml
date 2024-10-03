@@ -60,6 +60,6 @@ jobs:
         if: steps.release-check.outputs.release == '1'
         run: |
           pnpm --filter=${{ matrix.package }} run release --preid "develop.$(date +%s)-$(git rev-parse --short HEAD)" --skip-changelog
-          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks --tag develop || true
+          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks --tag develop --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

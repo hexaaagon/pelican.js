@@ -45,6 +45,6 @@ jobs:
 
       - name: Publish beta package
         run: |
-          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks --tag beta || true
+          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks --tag beta --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
