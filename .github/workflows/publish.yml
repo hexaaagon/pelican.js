@@ -11,16 +11,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
-          cache: "pnpm"
+          node-version: "21.x"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
-        run: pnpm install
+        run: npx pnpm install
 
       - name: Turbo run build
         run: npx turbo run build
@@ -36,5 +36,5 @@ jobs:
         run: |
           for package in $changed_packages; do
             echo "Publishing $package"
-            pnpm --filter $package publish --provenance --access public --no-git-checks || exit 1
+            npx pnpm --filter $package publish --provenance --access public --no-git-checks || exit 1
           done
