@@ -1,7 +1,7 @@
-name: Publish Beta
+name: Publish Release
 on:
   release:
-    types: [prereleased]
+    types: [released]
 
 jobs:
   npm-publish:
@@ -43,13 +43,8 @@ jobs:
       - name: Build dependencies
         run: pnpm run build
 
-      - name: Publish beta package
+      - name: Publish stable package
         run: |
-          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks --tag beta || true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Deprecate prior beta releases
-        run: pnpm exec npm-deprecate --name "*beta*" --message "This version is deprecated. Please use a newer version." --package ${{ matrix.package }}
+          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
