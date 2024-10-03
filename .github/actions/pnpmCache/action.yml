@@ -37,6 +37,6 @@ runs:
     - name: Install dependencies
       shell: bash
       run: |
-        pnpm install --frozen-lockfile --prefer-offline --loglevel error
+        pnpm install --prefer-offline --loglevel error
       env:
         HUSKY: "0"
