@@ -58,7 +58,7 @@ jobs:
       - name: Publish package
         if: steps.release-check.outputs.release == '1'
         run: |
-          VERSION=$(node -p "require('./${{ matrix.folder }}/package.json').version")
+          VERSION=$(node -p "require('./packages/${{ matrix.folder }}/package.json').version")
           TIMESTAMP=$(date +%s)
           BETA_VERSION="${VERSION}--beta.${TIMESTAMP}"
 
