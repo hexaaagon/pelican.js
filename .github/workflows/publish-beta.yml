@@ -62,7 +62,7 @@ jobs:
           TIMESTAMP=$(date +%s)
           BETA_VERSION="${VERSION}--beta.${TIMESTAMP}"
 
-          pnpm --filter=${{ matrix.package }} run version $BETA_VERSION --no-git-tag-version
+          pnpm --filter=${{ matrix.package }} exec pnpm version $BETA_VERSION --no-git-tag-version
           pnpm --filter=${{ matrix.package }} publish --force --provenance --no-git-checks --tag beta --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
