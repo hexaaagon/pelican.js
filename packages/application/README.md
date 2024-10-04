@@ -13,7 +13,7 @@
 
 ## About
 
-pelican.js is an API Wrapper for [Pelican Panel.](https://pelican.dev/)
+`@pelicanjs/application` is a Application-Method API Wrapper for [Pelican Panel.](https://pelican.dev/)
 
 things can break.
 
@@ -23,22 +23,10 @@ things can break.
   <summary>Latest Release</summary>
 
 ```
-npm i pelican.js
-yarn add pelican.js
-pnpm add pelican.js
-bun add pelican.js
-```
-
-</details>
-
-<details>
-  <summary>Develop Release</summary>
-
-```
-npm i pelican.js@develop
-yarn add pelican.js@develop
-pnpm add pelican.js@develop
-bun add pelican.js@develop
+npm i @pelican.js/application
+yarn add @pelican.js/application
+pnpm add @pelican.js/application
+bun add @pelican.js/application
 ```
 
 </details>
