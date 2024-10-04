@@ -58,7 +58,11 @@ jobs:
       - name: Publish package
         if: steps.release-check.outputs.release == '1'
         run: |
-          pnpm version --filter=${{ matrix.package }} "beta.$(date +%s)" --no-git-tag-version
+          VERSION=$(node -p "require('./${{ matrix.folder }}/package.json').version")
+          TIMESTAMP=$(date +%s)
+          BETA_VERSION="${VERSION}--beta.${TIMESTAMP}"
+
+          pnpm version --filter=${{ matrix.package }} $BETA_VERSION --no-git-tag-version
           pnpm publish --filter=${{ matrix.package }} --provenance --no-git-checks --tag beta --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
