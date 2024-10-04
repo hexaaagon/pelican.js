@@ -64,6 +64,6 @@ jobs:
           DEVELOP_VERSION="${VERSION}--develop.${TIMESTAMP}"
 
           pnpm version --filter=${{ matrix.package }} $DEVELOP_VERSION --no-git-tag-version
-          pnpm publish --filter=${{ matrix.package }} --provenance --no-git-checks --tag develop --access public || true
+          pnpm publish --filter=${{ matrix.package }} --force --provenance --no-git-checks --tag develop --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

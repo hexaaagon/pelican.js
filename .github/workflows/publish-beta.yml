@@ -63,6 +63,6 @@ jobs:
           BETA_VERSION="${VERSION}--beta.${TIMESTAMP}"
 
           pnpm version --filter=${{ matrix.package }} $BETA_VERSION --no-git-tag-version
-          pnpm publish --filter=${{ matrix.package }} --provenance --no-git-checks --tag beta --access public || true
+          pnpm publish --filter=${{ matrix.package }} --force --provenance --no-git-checks --tag beta --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
