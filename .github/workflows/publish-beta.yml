@@ -30,6 +30,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install Node.js v20
         uses: actions/setup-node@v4
@@ -37,14 +39,26 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
 
+      - name: Check the current betament version
+        id: release-check
+        run: |
+          if [[ $(npm view ${{ matrix.package }}@beta version | grep -e "$(git rev-parse --short HEAD)") ]]; \
+            then echo "RELEASE=0" >> "$GITHUB_OUTPUT"; \
+            else echo "RELEASE=1" >> "$GITHUB_OUTPUT"; \
+          fi
+
       - name: Install dependencies
+        if: steps.release-check.outputs.release == '1'
         uses: ./.github/actions/pnpmCache
 
       - name: Build dependencies
+        if: steps.release-check.outputs.release == '1'
         run: pnpm run build
 
-      - name: Publish beta package
+      - name: Publish package
+        if: steps.release-check.outputs.release == '1'
         run: |
-          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks --tag beta --access public || true
+          pnpm version --filter=${{ matrix.package }} "beta.$(date +%s)" --no-git-tag-version
+          pnpm publish --filter=${{ matrix.package }} --provenance --no-git-checks --tag beta --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -45,6 +45,6 @@ jobs:
 
       - name: Publish stable package
         run: |
-          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks --access public || true
+          pnpm publish --filter=${{ matrix.package }} --provenance --no-git-checks --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

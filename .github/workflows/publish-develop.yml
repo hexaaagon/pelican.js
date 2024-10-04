@@ -59,7 +59,7 @@ jobs:
       - name: Publish package
         if: steps.release-check.outputs.release == '1'
         run: |
-          pnpm --filter=${{ matrix.package }} version "develop.$(date +%s)-$(git rev-parse --short HEAD)" --no-git-tag-version
-          pnpm --filter=${{ matrix.package }} publish --provenance --no-git-checks --tag develop --access public || true
+          pnpm version --filter=${{ matrix.package }} "develop.$(date +%s)-$(git rev-parse --short HEAD)" --no-git-tag-version
+          pnpm publish --filter=${{ matrix.package }} --provenance --no-git-checks --tag develop --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
