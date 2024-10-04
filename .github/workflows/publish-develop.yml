@@ -63,7 +63,7 @@ jobs:
           TIMESTAMP=$(date +%s)
           DEVELOP_VERSION="${VERSION}--develop.${TIMESTAMP}"
 
-          pnpm version --filter=${{ matrix.package }} $DEVELOP_VERSION --no-git-tag-version
-          pnpm publish --filter=${{ matrix.package }} --force --provenance --no-git-checks --tag develop --access public || true
+          pnpm --filter=${{ matrix.package }} run version $DEVELOP_VERSION --no-git-tag-version
+          pnpm --filter=${{ matrix.package }} publish --force --provenance --no-git-checks --tag develop --access public || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
