@@ -4,7 +4,7 @@
 
 **Note that this package is still under development. (ALPHA)**
 
-![NPM](https://img.shields.io/npm/v/pelican.js?style=for-the-badge)
+![NPM](https://img.shields.io/npm/v/@pelicanjs/application?style=for-the-badge)
 ![Build Status](https://img.shields.io/github/actions/workflow/status/hexaaagon/pelican.js/publish-release.yml?style=for-the-badge)
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)

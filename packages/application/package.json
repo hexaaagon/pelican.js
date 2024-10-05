@@ -1,6 +1,6 @@
 {
   "name": "@pelicanjs/application",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A NodeJS API Wrapper for Pelican Panel.",
   "main": "dist/index.js",
   "types": "typings/index.d.ts",
